@@ -1,4 +1,5 @@
 ﻿using LojaPrjWPF.Model;
+using LojaPrjWPF.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,17 +30,27 @@ namespace LojaPrjWPF
             Cliente cliente = new Cliente();
             Endereco endereco = new Endereco();
 
-            cliente.Id = int.Parse(txtNome.Text);
+            //cliente.Id = int.Parse(txtNome.Text);
+            cliente.Id = 1;
             cliente.Nome = txtNome.Text;
             cliente.Sobrenome = txtSobrenome.Text;
             cliente.CPF = txtCPF.Text;
-            endereco.Id = int.Parse(txtNome.Text);
+            //endereco.Id = int.Parse(txtNome.Text);
+            endereco.Id = 1;
             endereco.Rua = txtRua.Text;
             endereco.Numero = int.Parse(txtNum.Text);
             endereco.Cidade = txtCidade.Text;
             endereco.Estado = txtEstado.Text;
-            endereco.Cep = txtCEP.Text; 
+            endereco.Cep = txtCEP.Text;
+
+            cliente.Endereco = endereco;
+
+            ClienteService clienteservice = new ClienteService();
+            clienteservice.SerializarJsonCliente(cliente); 
+
         }
+
+
 
     }
 }
