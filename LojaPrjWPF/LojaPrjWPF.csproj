@@ -75,6 +75,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Service\ClienteService.cs" />
+    <Compile Include="Service\Constants\NomeJsonConst.cs" />
     <Compile Include="Service\Extensions\ConversoesJson.cs" />
     <Compile Include="Telas\CadCliente.xaml.cs">
       <DependentUpon>CadCliente.xaml</DependentUpon>

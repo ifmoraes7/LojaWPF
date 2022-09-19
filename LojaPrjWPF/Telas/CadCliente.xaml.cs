@@ -30,8 +30,6 @@ namespace LojaPrjWPF
             Cliente cliente = new Cliente();
             Endereco endereco = new Endereco();
 
-            //cliente.Id = int.Parse(txtNome.Text);
-            cliente.Id = 1;
             cliente.Nome = txtNome.Text;
             cliente.Sobrenome = txtSobrenome.Text;
             cliente.CPF = txtCPF.Text;
@@ -46,7 +44,7 @@ namespace LojaPrjWPF
             cliente.Endereco = endereco;
 
             ClienteService clienteservice = new ClienteService();
-            clienteservice.SerializarJsonCliente(cliente); 
+            clienteservice.AdicionarCliente(cliente); 
 
         }
 

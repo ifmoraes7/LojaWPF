@@ -1,4 +1,6 @@
 ﻿using LojaPrjWPF.Model;
+using LojaPrjWPF.Service.Constants;
+using LojaPrjWPF.Service.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,29 +14,26 @@ namespace LojaPrjWPF.Service
 {
     public class ClienteService
     {
-        public void SerializarJsonCliente(Cliente cliente)
+        private ConversoesJson _conversoesJson;
+        public ClienteService()
         {
-            
-            string jsonString = JsonConvert.SerializeObject(cliente); //Criação do JSON
-            string path = @"C:\Users\Iagof\source\repos\Benner PRJS\LojaWPF\Arquivos\Clientes.json";
-            using (var tw = new StreamWriter(path, true))
-            {
-                tw.WriteLine(jsonString);
-                tw.Close();
-            }
+            _conversoesJson = new ConversoesJson();
+        }
+        public void AdicionarCliente(Cliente cliente)
+        {
+            Cliente last = ListarClientes().OrderByDescending(x => x.Id).Last(); //Uso de LINQ
+            cliente.Id = last.Id++;
 
-
-            /*if (File.Exists(path))
-            {
-            }
-            else 
-            {
-             
-            }*/
-
-
+            _conversoesJson.SalvarJson(cliente, NomeJsonConst.Clientes);
 
         }
+        public List<Cliente> ListarClientes()
+        {
+            return (List<Cliente>)_conversoesJson.LeituraJson(NomeJsonConst.Clientes);
+        }
+        /*public List<Cliente> AlterarClientes()
+        {
 
+        }*/
     }
 }

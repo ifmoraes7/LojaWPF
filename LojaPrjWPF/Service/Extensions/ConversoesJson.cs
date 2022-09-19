@@ -1,4 +1,5 @@
 ﻿using LojaPrjWPF.Model;
+using LojaPrjWPF.Service.Constants;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,29 +12,39 @@ namespace LojaPrjWPF.Service.Extensions
 {
     class ConversoesJson
     {
-        public void SalvarJson(Object obj )
+        private string _path;
+        string json = "";
+
+        public ConversoesJson()
+        {
+            _path = @"C:\Users\Iagof\source\repos\Benner PRJS\LojaWPF\Arquivos\";
+        }
+        public void SalvarJson(Object obj, string nomeJson)
         {
             string jsonString = JsonConvert.SerializeObject(obj); //Criação do JSON
-            string path = @"C:\Users\Iagof\source\repos\Benner PRJS\LojaWPF\Arquivos";
-            /*switch (obj2)
-            {
-                case Cliente c:
-                    Path.Combine(path, @"\Clientes.json");
-                break;
-            }*/
-            if (obj is Cliente)
-                Path.Combine(path, @"\Clientes.json");
-            if (obj is Pedido)
-                Path.Combine(path, @"\Pedido.json");
-            if (obj is Produto)
-                Path.Combine(path, @"\Produto.json");
 
-
-            using (var tw = new StreamWriter(path, true))
+            using (var tw = new StreamWriter(_path + nomeJson, true))
             {
                 tw.WriteLine(jsonString);
                 tw.Close();
             }
+        }
+        public Object LeituraJson(string nomeJson)
+        {
+            var json = "[";
+            using (StreamReader objd = new StreamReader(_path + nomeJson))
+            {
+                json += objd.ReadToEnd() + "]";
+            }
+            switch (nomeJson)
+            {
+                case NomeJsonConst.Clientes:
+                    return JsonConvert.DeserializeObject<Cliente>(json);
+                    break;
+            }
+
+            return null;
+            //List<Object> items = (Cliente)JsonConvert.DeserializeObject<Object>(json);
         }
     }
 }
