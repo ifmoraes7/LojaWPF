@@ -20,7 +20,7 @@ namespace LojaPrjWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private 
+        //private 
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +29,11 @@ namespace LojaPrjWPF
         private void btnCadastroCliente_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void btnListarClientes_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

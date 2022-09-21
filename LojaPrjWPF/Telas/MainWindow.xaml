@@ -8,10 +8,10 @@
         Title="MainWindow" Height="483.106" Width="796.321">
     <Grid>
         <Menu>
-            <MenuItem Header="Clientes">
+            <MenuItem Header="Clientes" Click="MenuItem_Click">
                 <MenuItem Header ="Cadastro" x:Name="btnCadastroCliente" Click="btnCadastroCliente_Click"/>
-                <MenuItem Command="ApplicationCommands.Cut"/>
-                <MenuItem Command="ApplicationCommands.Paste"/>
+                <MenuItem Header="Listar Clientes" x:Name="btnListarClientes"  Click="btnListarClientes_Click"/>
+                
             </MenuItem>
             <MenuItem Header="Produtos">
                 <MenuItem Header="_Bold" IsCheckable="True"
