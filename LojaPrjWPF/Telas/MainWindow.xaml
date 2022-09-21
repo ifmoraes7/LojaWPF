@@ -7,14 +7,33 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="483.106" Width="796.321">
     <Grid>
-        <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="487" Margin="0,10,0,0"/>
-        <TabControl HorizontalAlignment="Left" Height="442" VerticalAlignment="Top" Width="788">
-            <TabItem Header="Produtos&#xD;&#xA;" Margin="53,0,-53,19"/>
-            <TabItem x:Name="btnCadPedido" Header="Pedidos" Margin="52,0,-52,19"/>
-            <TabItem Header="Clientes" Margin="-114,0,114,19">
-                <Button x:Name="btnCadCliente" Content="Cadastro Cliente" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="118" Height="26" Click="Button_Click"/>
-            </TabItem>
-        </TabControl>
-
+        <Menu>
+            <MenuItem Header="Clientes">
+                <MenuItem Header ="Cadastro" x:Name="btnCadastroCliente" Click="btnCadastroCliente_Click"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+            <MenuItem Header="Produtos">
+                <MenuItem Header="_Bold" IsCheckable="True"
+              />
+                <MenuItem Header="_Italic" IsCheckable="True"
+             />
+                <Separator/>
+                <MenuItem Header="I_ncrease Font Size"
+              />
+                <MenuItem Header="_Decrease Font Size"
+              /> 
+            </MenuItem>
+            <MenuItem Header="Pedidos">
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+            <MenuItem Header="Sair">
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>

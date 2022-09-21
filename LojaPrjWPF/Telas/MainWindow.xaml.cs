@@ -20,14 +20,15 @@ namespace LojaPrjWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnCadastroCliente_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
