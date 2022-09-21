@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CadCliente" Height="450" Width="800">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="388" Margin="10,10,0,0" VerticalAlignment="Top" Width="761">
+        <Grid HorizontalAlignment="Left" Height="388" Margin="10,21,0,0" VerticalAlignment="Top" Width="761">
             <Label Content="Nome:&#xD;&#xA;" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top" Width="56"/>
             <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="99,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
             <Label Content="Sobrenome:&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="20,102,0,0" VerticalAlignment="Top" Height="24"/>

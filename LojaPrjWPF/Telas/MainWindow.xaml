@@ -7,33 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="483.106" Width="796.321">
     <Grid>
-        <Menu>
+        <Menu Margin="10,10,10,417">
             <MenuItem Header="Clientes" Click="MenuItem_Click">
-                <MenuItem Header ="Cadastro" x:Name="btnCadastroCliente" Click="btnCadastroCliente_Click"/>
+                <MenuItem Header ="Cadastrar Clientes" x:Name="btnCadastroCliente" Click="btnCadastroCliente_Click"/>
                 <MenuItem Header="Listar Clientes" x:Name="btnListarClientes"  Click="btnListarClientes_Click"/>
-                
             </MenuItem>
             <MenuItem Header="Produtos">
-                <MenuItem Header="_Bold" IsCheckable="True"
-              />
-                <MenuItem Header="_Italic" IsCheckable="True"
-             />
-                <Separator/>
-                <MenuItem Header="I_ncrease Font Size"
-              />
-                <MenuItem Header="_Decrease Font Size"
-              /> 
+                <MenuItem Header="Cadastrar Produto" x:Name="btnCadastrarProduto" Click="btnCadastrarProduto_Click"/>
+                <MenuItem Header="Listar Produtos" x:Name="btnListarProdutos" Click="btnListarProdutos_Click"/>
             </MenuItem>
             <MenuItem Header="Pedidos">
-                <MenuItem Command="ApplicationCommands.Copy"/>
-                <MenuItem Command="ApplicationCommands.Cut"/>
-                <MenuItem Command="ApplicationCommands.Paste"/>
+                <MenuItem  Header="Cadastrar Pedido" x:Name="btnCadastrarPedido" Click="btnCadastrarPedido_Click"/>
+                <MenuItem  Header="Listar Pedidos" x:Name="btnListarPedidos" Click="btnListarPedidos_Click"/>
             </MenuItem>
-            <MenuItem Header="Sair">
-                <MenuItem Command="ApplicationCommands.Copy"/>
-                <MenuItem Command="ApplicationCommands.Cut"/>
-                <MenuItem Command="ApplicationCommands.Paste"/>
-            </MenuItem>
+
+            <MenuItem Header="Sair" x:Name="btnSair" Click="btnSair_Click_2"></MenuItem>
+
         </Menu>
+        <Grid x:Name="grdCadCliente" HorizontalAlignment="Left" Height="367" Margin="21,40,0,0" VerticalAlignment="Top" Width="757"/>
     </Grid>
 </Window>
