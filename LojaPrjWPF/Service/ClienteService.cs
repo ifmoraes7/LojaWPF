@@ -21,10 +21,21 @@ namespace LojaPrjWPF.Service
         }
         public void AdicionarCliente(Cliente cliente)
         {
-            Cliente last = ListarClientes().OrderByDescending(x => x.Id).Last(); //Uso de LINQ
-            cliente.Id = last.Id++;
+            List<Cliente> listaCliente = ListarClientes();
+            Cliente last;
 
-            _conversoesJson.SalvarJson(cliente, NomeJsonConst.Clientes);
+            if (listaCliente != null)
+            {
+                last = listaCliente.OrderByDescending(x => x.Id).Last(); //Uso de LINQ
+                cliente.Id = last.Id + 1;
+            }
+            else
+            {
+                cliente.Id = 1;
+                listaCliente = new List<Cliente>();
+            }
+            listaCliente.Add(cliente);
+            _conversoesJson.SalvarJson(listaCliente, NomeJsonConst.Clientes);
 
         }
         public List<Cliente> ListarClientes()

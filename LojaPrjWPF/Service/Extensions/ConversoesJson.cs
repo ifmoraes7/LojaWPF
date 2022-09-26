@@ -23,7 +23,7 @@ namespace LojaPrjWPF.Service.Extensions
         {
             string jsonString = JsonConvert.SerializeObject(obj); //Criação do JSON
 
-            using (var tw = new StreamWriter(_path + nomeJson, true))
+            using (var tw = new StreamWriter(_path + nomeJson, false))
             {
                 tw.WriteLine(jsonString);
                 tw.Close();
@@ -31,15 +31,22 @@ namespace LojaPrjWPF.Service.Extensions
         }
         public Object LeituraJson(string nomeJson)
         {
-            var json = "[";
+            string pathJson = _path + nomeJson;
+            if (!File.Exists(pathJson))
+            {
+                return null;
+            }
+
+            var json = "";
             using (StreamReader objd = new StreamReader(_path + nomeJson))
             {
-                json += objd.ReadToEnd() + "]";
+             json = objd.ReadToEnd();
             }
             switch (nomeJson)
             {
                 case NomeJsonConst.Clientes:
-                    return JsonConvert.DeserializeObject<Cliente>(json);
+                    List<Cliente> listaJson = JsonConvert.DeserializeObject<List<Cliente>>(json);
+                    return listaJson;
                     break;
             }
 
