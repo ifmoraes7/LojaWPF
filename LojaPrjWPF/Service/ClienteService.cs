@@ -26,7 +26,7 @@ namespace LojaPrjWPF.Service
 
             if (listaCliente != null)
             {
-                last = listaCliente.OrderByDescending(x => x.Id).Last(); //Uso de LINQ
+                last = listaCliente.OrderBy(x => x.Id).Last(); //Uso de LINQ
                 cliente.Id = last.Id + 1;
             }
             else

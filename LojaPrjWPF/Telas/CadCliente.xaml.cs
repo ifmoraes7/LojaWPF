@@ -44,8 +44,13 @@ namespace LojaPrjWPF
             cliente.Endereco = endereco;
 
             ClienteService clienteservice = new ClienteService();
-            clienteservice.AdicionarCliente(cliente); 
+            clienteservice.AdicionarCliente(cliente);
 
+            MessageBoxResult result = MessageBox.Show("Cliente cadastrado com sucesso","Cadastro Cliente", MessageBoxButton.OK);
+            if (result == MessageBoxResult.OK)
+            {
+                Close();
+            }
         }
 
 

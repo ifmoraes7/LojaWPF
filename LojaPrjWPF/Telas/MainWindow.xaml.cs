@@ -29,17 +29,14 @@ namespace LojaPrjWPF
 
         private void btnCadastroCliente_Click(object sender, RoutedEventArgs e)
         {
-           // CadCliente cadcliente = new CadCliente();
-           // object clientes1 = cadcliente.Content;
-            //ClienteCad clientecad = new ClienteCad();
-            //grdCadCliente.Children.Add(cadcliente.Content);
-
-
+            CadCliente cadCliente = new CadCliente();
+            cadCliente.Show();
         }
 
         private void btnListarClientes_Click(object sender, RoutedEventArgs e)
         {
-
+            ListarClientes clienteList = new ListarClientes();
+            clienteList.Show();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
